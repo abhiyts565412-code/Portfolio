@@ -658,6 +658,12 @@ body {
   gap: 0.75rem;
   background: linear-gradient(135deg, var(--bg-soft) 0%, var(--border-light) 100%);
 }
+.photo-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 .photo-placeholder p { font-size: 0.875rem; color: var(--text-tertiary); font-weight: 500; }
 .photo-badges {
   display: grid;
@@ -1321,13 +1327,12 @@ body {
    ════════════════════════════════════════════════════════ */
 /* ── RESPONSIVE ───────────────────────────────────────────────── */
 @media (max-width: 1024px) {
-  .hero-container { grid-template-columns: 1fr; text-align: center; }
-  .hero-content { align-items: center; display: flex; flex-direction: column; }
-  .hero-sub { text-align: center; }
-  .hero-visual { display: none; }
-  .hero-stats { justify-content: center; }
-  .about-grid { grid-template-columns: 1fr; gap: 3rem; }
-  .about-visual { max-width: 380px; margin: 0 auto; }
+  .hero-container { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .hero-content { align-items: flex-start; display: flex; flex-direction: column; }
+  .hero-sub { text-align: left; }
+  .hero-stats { justify-content: flex-start; }
+  .about-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
+  .about-visual { max-width: 100%; margin: 0; }
   .services-grid { grid-template-columns: repeat(2, 1fr); }
   .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
   .process-track { grid-template-columns: repeat(2, 1fr); }
@@ -1402,51 +1407,6 @@ body {
    RESPONSIVE DESIGN
    ================================ */
 
-/* Mobile (max-width: 768px) */
-@media (max-width: 768px) {
-  /* Hero section */
-  .hero-container {
-    grid-template-columns: 1fr;
-    text-align: center;
-    gap: 2rem;
-  }
-  .hero-sub {
-    margin: 0 auto;
-  }
-  .hero-actions {
-    justify-content: center;
-  }
-
-  /* About section */
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-  .photo-frame {
-    margin: 0 auto;
-  }
-
-  /* Services section */
-  .services-grid {
-    grid-template-columns: 1fr;
-  }
-
-  /* Portfolio section */
-  .portfolio-grid,
-  .portfolio-grid-2col {
-    grid-template-columns: 1fr;
-  }
-
-  /* Navbar */
-  .hamburger { display: flex; }
-  .photo-badges {
-    grid-template-columns: 1fr;
-  }
-  .about-visual {
-    align-items: center;
-  }
-}
-
 /* Tablet (769px – 1024px) */
 @media (min-width: 769px) and (max-width: 1024px) {
   .services-grid {
@@ -1458,6 +1418,14 @@ body {
   .about-grid {
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
+  }
+  .team-cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+  .team-cards .team-member-card:nth-child(3) {
+    grid-column: 1 / -1;
   }
 }
 
